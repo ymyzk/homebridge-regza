@@ -16,7 +16,7 @@ module.exports = (homebridge) => {
 class RegzaAccessory {
   constructor(log, config) {
     this._log = log;
-    this.name = config.name && "REGZA";
+    this.name = config.name || "REGZA";
     this.host = config.host;
     this.user = config.user;
     this.pass = config.pass;
