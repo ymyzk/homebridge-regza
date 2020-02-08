@@ -45,6 +45,27 @@ class RegzaAccessory {
       .getCharacteristic(Characteristic.VolumeSelector)
       .on('set', this._setVolume.bind(this));
     this._service.addLinkedService(this._speakerService);
+
+    this._inputSource1 = new Service.InputSource("HDMI 1", "hdmi_1");
+    this._inputSource1
+      .setCharacteristic(Characteristic.Identifier, 1)
+      .setCharacteristic(Characteristic.ConfiguredName, "HDMI 1")
+      .setCharacteristic(
+        Characteristic.IsConfigured,
+        Characteristic.IsConfigured.CONFIGURED
+      )
+      .setCharacteristic(Characteristic.InputSourceType, Characteristic.InputSourceType.HDMI);
+    this._service.addLinkedService(this._inputSource1);
+    this._inputSource2 = new Service.InputSource("HDMI 2", "hdmi_2");
+    this._inputSource2
+      .setCharacteristic(Characteristic.Identifier, 2)
+      .setCharacteristic(Characteristic.ConfiguredName, "HDMI 2")
+      .setCharacteristic(
+        Characteristic.IsConfigured,
+        Characteristic.IsConfigured.CONFIGURED
+      )
+      .setCharacteristic(Characteristic.InputSourceType, Characteristic.InputSourceType.HDMI);
+    this._service.addLinkedService(this._inputSource2);
   }
 
   getServices() {
