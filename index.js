@@ -154,6 +154,7 @@ class RegzaAccessory {
 
   // Send HTTP/HTTPS request using Digest authentication
   async _sendRequest(url, path) {
+    this._log("Sending request");
     const fullUrl = url + path;
     const httpsAgent = new https.Agent({
       rejectUnauthorized: false,
